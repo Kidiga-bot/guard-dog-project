@@ -1,3 +1,4 @@
+#My first self trained model
 # Guard Dog: Prompt Injection Detector
 
 A lightweight, high-performance security layer for Large Language Models (LLMs). Trained on `distilbert-base-uncased`, this model acts as a binary classifier to detect and block prompt injection attacks before they reach your primary agent.
