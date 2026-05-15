@@ -13,7 +13,7 @@ def train_guard_dog():
     tokenized_datasets = dataset.map(tokenize_function, batched=True)
 
     print("3. Loading the Base Model...")
-    # We load the base model and explicitly tell it we only have 2 categories (Safe or Malicious)
+    #  load the base model proviving details of dataset (Safe or Malicious)
     model = AutoModelForSequenceClassification.from_pretrained(
         "distilbert-base-uncased", 
         num_labels=2
@@ -38,14 +38,14 @@ def train_guard_dog():
         eval_dataset=tokenized_datasets["test"]
     )
 
-    print("6. STARTING TRAINING! (Your M5 chip is taking over now...)")
+    print("6. STARTING TRAINING! ( M5 chip is taking over now...)")
     trainer.train()
 
-    print("7. Training Complete! Saving your new custom AI to your hard drive...")
+    print("7. Training Complete! Saving  new custom AI to your hard drive...")
     trainer.save_model("./guard_dog_saved_model")
     tokenizer.save_pretrained("./guard_dog_saved_model")
     
-    print("Success! Your custom model is saved in the 'guard_dog_saved_model' folder.")
+    print("Success! custom model is saved in the 'guard_dog_saved_model' folder.")
 
 if __name__ == "__main__":
     train_guard_dog()
